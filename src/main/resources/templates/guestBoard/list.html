@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<th:block layout:fragment="content" >
+
+        <div class="mt-5 p-5 ">
+            <form method="post" th:action="@{/guestBoard/write}" >
+                <div class="text-danger" ></div>
+                <div class="row text-dark">
+                    <div class="col-sm-2 d-grid">
+                        <div class="form-floating">
+                            <input class="form-control check" type="text" name="Name" placeholder="Leave a Name here" />
+                            <span class="text-danger" ></span>
+                            <label>Name</label>
+                            <span class="text-danger"></span>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control check" type="password" name="Password" placeholder="Leave a PW here" />
+                            <span class="text-danger"></span>
+                            <label>Password</label>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-floating">
+                            <textarea class="form-control check" name="Content" style="height: 120px" placeholder="Leave a comment here"></textarea>
+                            <span class="text-danger" ></span>
+                            <label>Content</label>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-grid gap-2">
+                        <button class="btn btn-lg btn-outline-primary" type="submit">등록</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+
+        <div th:each="guestBoard : ${guestBoardList}" class="d-flex text-muted pt-3">
+            <object class="bd-placeholder-img flex-shrink-0 me-2 rounded" data="/user.svg" width="32" height="32"
+                    role="img" aria-label="Placeholder: 32x32" focusable="false"></object>
+
+            <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                <div class="d-flex justify-content-between">
+                    <strong th:text="${guestBoard.name}" class="text-gray-dark"></strong>
+                    <div>
+                        <span th:text="${guestBoard.createDate}"></span>
+                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+
+                <span th:text="${guestBoard.content}" class="d-block"></span>
+            </div>
+        </div>
+
+        <!--<div class="d-flex justify-content-end mt-3">
+            <a class="btn btn-lg btn-outline-primary" th:href="@{/}">등록</a>
+        </div>-->
+</th:block>
+
+</html>
