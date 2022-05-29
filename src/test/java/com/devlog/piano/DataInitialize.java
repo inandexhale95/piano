@@ -35,6 +35,7 @@ public class DataInitialize {
         member1.setPassword("user123");
         member1.setName("기본맨");
         member1.setRole(Role.ROLE_MEMBER);
+        member1.setEnabled(true);
         memberRepository.save(member1);
 
         Member member2 = new Member();
@@ -42,6 +43,7 @@ public class DataInitialize {
         member2.setPassword("admin123");
         member2.setName("관리자");
         member2.setRole(Role.ROLE_ADMIN);
+        member2.setEnabled(true);
         memberRepository.save(member2);
 
         for (int i = 1; i <= 7; i++) {

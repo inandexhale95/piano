@@ -27,6 +27,8 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    private boolean enabled;
+
     @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
     private List<Board> boardList = new ArrayList<>();
 }

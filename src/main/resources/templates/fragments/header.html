@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.tyhmeleaf.org/thymeleaf-extras-springsecurity5">
 
 
   <div th:fragment="headerFragment" class="header navbar-fixed-top">
@@ -17,8 +18,9 @@
             <li><a th:href="@{/about}">소개</a></li>
             <li><a th:href="@{/guestBoard/list}">익명게시판</a></li>
             <li><a th:href="@{/board/list}">게시판</a></li>
-            <li><a th:href="portfolio.html">갤러리</a></li>
+            <li><a th:href="@{/gallery}">갤러리</a></li>
             <li><a th:href="@{/contact}">연락</a></li>
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/system/logout}">로그아웃</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
