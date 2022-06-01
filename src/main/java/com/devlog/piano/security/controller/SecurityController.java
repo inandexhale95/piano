@@ -32,7 +32,7 @@ public class SecurityController {
         member.setRole(Role.ROLE_MEMBER);
         memberRepository.save(member);
 
-        return "redirect:system/login";
+        return "redirect:/system/login";
     }
 
     @GetMapping("/system/accessDenied")

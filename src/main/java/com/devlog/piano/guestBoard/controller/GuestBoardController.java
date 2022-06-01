@@ -37,4 +37,15 @@ public class GuestBoardController {
 
         return "redirect:list";
     }
+
+    @PostMapping("/delete")
+    public String deleteGuestBoard(GuestBoard guestBoard) {
+        try {
+            guestBoardService.deleteGuestBoard(guestBoard);
+        } catch (Exception e) {
+
+        }
+
+        return "redirect:list";
+    }
 }

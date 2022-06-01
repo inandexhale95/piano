@@ -31,15 +31,15 @@ public class DataInitialize {
     @Test
     public void testSeedData() {
         Member member1 = new Member();
-        member1.setId("user1");
+        member1.setId("basicUser");
         member1.setPassword("user123");
-        member1.setName("기본맨");
+        member1.setName("기본유저");
         member1.setRole(Role.ROLE_MEMBER);
         member1.setEnabled(true);
         memberRepository.save(member1);
 
         Member member2 = new Member();
-        member2.setId("admin1");
+        member2.setId("adminUser");
         member2.setPassword("admin123");
         member2.setName("관리자");
         member2.setRole(Role.ROLE_ADMIN);
@@ -48,14 +48,16 @@ public class DataInitialize {
 
         for (int i = 1; i <= 7; i++) {
             Board board = new Board();
-            board.setContent(member1.getName() + "이 작성한 게시물 " + i);
+            board.setTitle(member1.getName() + "이 작성한 게시물 " + i);
+            board.setContent(member1.getName() + "이 작성한 게시물 " + i + "번째 내용");
             board.setMember(member1);
             boardRepository.save(board);
         }
 
         for (int i = 1; i <= 7; i++) {
             Board board = new Board();
-            board.setContent(member2.getName() + "이 작성한 게시물 " + i);
+            board.setTitle(member2.getName() + "이 작성한 게시물 " + i);
+            board.setContent(member2.getName() + "이 작성한 게시물 " + i + "번째 내용");
             board.setMember(member2);
             boardRepository.save(board);
         }

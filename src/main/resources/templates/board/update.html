@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.tyhmeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="~{fragments/layout}">
+
+<th:block layout:fragment="content">
+
+    <article class="mt-5 p-5">
+        <div class="container" role="main">
+
+            <form th:action="@{/board/update}" method="post">
+                <input type="hidden" name="seq" th:value="${board.seq}" readonly>
+                <div class="mb-3">
+                    <label for="title">제목</label>
+                    <input type="text" class="form-control" id="title" name="title" th:value="${board.title}">
+                </div>
+                <div class="mb-3">
+                    <label for="content">내용</label>
+                    <textarea class="form-control" rows="5" cols="10" id="content" name="content"
+                              th:text="${board.content}"></textarea>
+                </div>
+                <span sec:authorized="isAuthenticated()">
+                    <button type="submit" class="btn btn-outline-secondary">수정</button>
+                </span>
+            </form>
+
+        </div>
+    </article>
+
+
+</th:block>
+
+
+</html>

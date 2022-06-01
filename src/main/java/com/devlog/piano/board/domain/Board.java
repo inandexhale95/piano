@@ -19,6 +19,9 @@ public class Board {
     private Long seq;
 
     @Column(nullable = false)
+    private String title;
+
+    @Column(nullable = false)
     private String content;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -27,7 +30,6 @@ public class Board {
 
     @Column(updatable = false)
     private Long count = 0L;
-
 
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID", nullable = false, updatable = false)

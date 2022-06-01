@@ -5,7 +5,50 @@
 
 <th:block layout:fragment="content">
 
+    <div class="mt-5 mb-3">
+        <table class="table container caption-top">
+            <caption>게시판 리스트</caption>
+            <colgroup>
+                <col style="width:5%;"/>
+                <col style="width:auto;"/>
+                <col style="width:15%;"/>
+                <col style="width:10%;"/>
+                <col style="width:10%;"/>
+            </colgroup>
 
+            <thead class="table-dark">
+            <tr>
+                <th>NO</th>
+                <th>글제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+
+            <tbody th:each="board, state : ${boardList}">
+            <!--<tr>
+                <td colspan="5" align="center">데이터가 없습니다.</td>
+            </tr>
+            &nbsp;-->
+            <tr>
+                <td th:text="${state.count}"></td>
+                <td><a th:href="@{/board/detail(seq=${board.seq})}" th:text="${board.title}"></a></td>
+                <td th:text="${board.member.name}"></td>
+                <td th:text="${#dates.format(board.createDate, 'yyyy-MM-dd')}"></td>
+                <td th:text="${board.count}"></td>
+            </tr>
+            </tbody>
+
+            <tfoot></tfoot>
+        </table>
+
+        <div class="container">
+            <div class="d-flex justify-content-end">
+                <a th:href="@{/board/write}" class="btn btn-outline-secondary">글쓰기</a>
+            </div>
+        </div>
+    </div>
 
 </th:block>
 
