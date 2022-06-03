@@ -17,11 +17,6 @@ ASP.NET Core의 학습자료를 바탕으로 Spring boot로 만드는 작업 진
 
 </br>
 
-## :pushpin: Projects
-~~https://introduceportfolio.azurewebsites.net/~~
-<br/>
-http://introduce-develop-blog.iptime.org/
-
 **기술 스택**
 <br/>
 <img src="https://img.shields.io/badge/JAVA-512BD4?style=flat&logo=java&logoColor=white"/>
